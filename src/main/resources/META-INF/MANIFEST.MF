@@ -1,0 +1,8 @@
+Mod-Class: net.darkhax.wawla.Wawla
+ID: wawla
+Name: What Are We Looking At
+Version: 0.0.0
+Description: Displays relevant info about what you are looking at.
+Author: Darkhax
+URL: http://minecraft.curseforge.com/projects/wawla-what-are-we-looking-at
+Logo: logo.png
