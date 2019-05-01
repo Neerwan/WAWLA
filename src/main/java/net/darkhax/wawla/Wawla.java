@@ -9,6 +9,7 @@ import net.darkhax.wawla.engine.WailaEngine;
 import net.darkhax.wawla.plugins.FeatureManager;
 import net.darkhax.wawla.plugins.InfoProvider;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -90,5 +92,15 @@ public class Wawla {
     public void onFingerprintViolation (FMLFingerprintViolationEvent event) {
 
         LOG.warn("Invalid fingerprint detected! The file " + event.getSource().getName() + " may have been tampered with. This version will NOT be supported by the author!");
+    }
+    
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void onPlayerJoinWorld(PlayerEvent.PlayerLoggedInEvent event) {
+        
+        if (event.player != null && Minecraft.getMinecraft().player == null && engine == null) {
+            
+            event.player.sendMessage(new TextComponentTranslation("message.wawla.noengine"));
+        }
     }
 }

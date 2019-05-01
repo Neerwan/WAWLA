@@ -1,4 +1,5 @@
 #Wawla Language File
+message.wawla.noengine=§6[Wawla]§f You installed Wawla without an information HUD mod. Wawla supports Hwyla and Waila. Wawla is currently just an addon, so no information HUD can be shown.
 tooltip.wawla.true=§aTrue
 tooltip.wawla.false=§4False
 tooltip.wawla.yes=§a✔
